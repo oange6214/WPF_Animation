@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="camera.png" />
+    <None Remove="folder.png" />
+    <None Remove="home-filling.png" />
+    <None Remove="image.png" />
+    <None Remove="multiply.png" />
+    <None Remove="plus.png" />
+    <None Remove="settings.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="camera.png" />
+    <Resource Include="folder.png" />
+    <Resource Include="home-filling.png" />
+    <Resource Include="image.png" />
+    <Resource Include="multiply.png" />
+    <Resource Include="plus.png" />
+    <Resource Include="settings.png" />
+  </ItemGroup>
+
+</Project>

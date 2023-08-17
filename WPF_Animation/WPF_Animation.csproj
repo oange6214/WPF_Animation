@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\pohan_lin\.nuget\packages\lottiesharp\2.2.0\contentFiles\any\net6.0-windows7.0\lottie_sharp.ico" />
+  </ItemGroup>
+
+</Project>
