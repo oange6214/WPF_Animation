@@ -1,0 +1,57 @@
+﻿<Window
+    x:Class="Demo.Example.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrl="clr-namespace:Demo.Controls;assembly=Demo.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Demo.Example"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Grid Background="#f1f3f5">
+        <TabControl>
+            <TabItem Header="Demo01">
+                <Button
+                    Width="100"
+                    Height="100"
+                    Click="Button_Click" />
+            </TabItem>
+
+            <TabItem Header="Demo02">
+                <Grid Background="#f1f3f5">
+                    <ctrl:CardButton />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Demo03">
+                <Grid>
+                    <ctrl:Menu01 />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Demo04">
+
+                <Grid>
+                    <ctrl:AnimateRectangle
+                        Height="150"
+                        Message="Authenticating... Please wait..."
+                        Stroke="Red"
+                        To="360"
+                        Duration="0:0:2" />
+                    <ctrl:AnimateRectangle
+                        Height="150"
+                        Stroke="Gray"
+                        To="180"
+                        Duration="0:0:2" />
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Demo05">
+                <ctrl:NumericButton />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

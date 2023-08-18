@@ -1,11 +1,11 @@
 ﻿<Window
-    x:Class="WPFTutorialButtonAnimation.MainWindow"
+    x:Class="Demo.Controls.MenuButton"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:WPFTutorialButtonAnimation"
+    xmlns:local="clr-namespace:Demo.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="MainWindow"
+    Title="MenuButton"
     Width="380"
     Height="450"
     AllowsTransparency="True"
@@ -39,7 +39,8 @@
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFF" />
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FFF" />
 
-        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+
+        <Style x:Key="ButtonStyleBase" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
             <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
@@ -48,6 +49,12 @@
             <Setter Property="HorizontalContentAlignment" Value="Center" />
             <Setter Property="VerticalContentAlignment" Value="Center" />
             <Setter Property="Padding" Value="1" />
+        </Style>
+
+        <Style
+            x:Key="ButtonStyle1"
+            BasedOn="{StaticResource ButtonStyleBase}"
+            TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -61,7 +68,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="/home-filling.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/home-filling.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -85,15 +92,11 @@
             </Setter>
         </Style>
 
-        <Style x:Key="ButtonStyle2" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Padding" Value="1" />
+        <Style
+            x:Key="ButtonStyle2"
+            BasedOn="{StaticResource ButtonStyleBase}"
+            TargetType="{x:Type Button}">
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -107,7 +110,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="/plus.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/plus.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -131,15 +134,11 @@
             </Setter>
         </Style>
 
-        <Style x:Key="ButtonStyle3" TargetType="{x:Type Button}">
-            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
-            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
-            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
-            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
-            <Setter Property="BorderThickness" Value="1" />
-            <Setter Property="HorizontalContentAlignment" Value="Center" />
-            <Setter Property="VerticalContentAlignment" Value="Center" />
-            <Setter Property="Padding" Value="1" />
+        <Style
+            x:Key="ButtonStyle3"
+            BasedOn="{StaticResource ButtonStyleBase}"
+            TargetType="{x:Type Button}">
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -153,7 +152,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="/settings.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/settings.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -199,7 +198,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="/multiply.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/multiply.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -260,7 +259,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="/camera.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/camera.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -328,7 +327,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="/folder.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/folder.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -396,7 +395,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="/image.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/image.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">

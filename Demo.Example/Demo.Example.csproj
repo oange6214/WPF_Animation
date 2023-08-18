@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\pohan_lin\.nuget\packages\lottiesharp\2.2.0\contentFiles\any\net6.0-windows7.0\lottie_sharp.ico" />
+    <ProjectReference Include="..\Demo.Controls\Demo.Controls.csproj" />
   </ItemGroup>
 
 </Project>

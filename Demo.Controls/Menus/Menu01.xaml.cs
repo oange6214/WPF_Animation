@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
-namespace AnimationDemo
+namespace Demo.Controls
 {
-    public partial class MainWindow : Window
+    public partial class Menu01 : UserControl
     {
         private readonly Duration _openCloseDuration = new Duration(TimeSpan.FromSeconds(0.5));
 
-        public MainWindow()
+        public Menu01()
         {
             InitializeComponent();
-
             dropdownContent.Height = 0;
         }
 
