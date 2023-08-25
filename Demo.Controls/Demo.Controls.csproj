@@ -1,143 +1,185 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B11041D-F38E-4D61-A8A7-6FE9905A5E45}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>Demo.Controls</RootNamespace>
-    <AssemblyName>Demo.Controls</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <None Remove="Assets\ControlCentres\icons8-bluetooth-24.png" />
+    <None Remove="Assets\ControlCentres\icons8-brightness-24 (1).png" />
+    <None Remove="Assets\ControlCentres\icons8-brightness-24.png" />
+    <None Remove="Assets\ControlCentres\icons8-charging-battery-50.png" />
+    <None Remove="Assets\ControlCentres\icons8-chromecast-cast-button-32.png" />
+    <None Remove="Assets\ControlCentres\icons8-headphones-24.png" />
+    <None Remove="Assets\ControlCentres\icons8-music-record-50.png" />
+    <None Remove="Assets\ControlCentres\icons8-no-reminders-24.png" />
+    <None Remove="Assets\ControlCentres\icons8-power-off-button-32.png" />
+    <None Remove="Assets\ControlCentres\icons8-settings-24 (1).png" />
+    <None Remove="Assets\ControlCentres\icons8-speaker-24.png" />
+    <None Remove="Assets\ControlCentres\icons8-wi-fi-24.png" />
+    <None Remove="Assets\Fonts\Kanit-Bold.ttf" />
+    <None Remove="Assets\Fonts\Kanit-Medium.ttf" />
+    <None Remove="Assets\Icons\arrow-down-filling.png" />
+    <None Remove="Assets\Icons\arrow-left-bold.png" />
+    <None Remove="Assets\Icons\arrow-right-bold.png" />
+    <None Remove="Assets\Icons\cancel-circle-half-dot.png" />
+    <None Remove="Assets\Icons\check.png" />
+    <None Remove="Assets\Icons\error.png" />
+    <None Remove="Assets\Icons\facebook.png" />
+    <None Remove="Assets\Icons\google.png" />
+    <None Remove="Assets\Icons\image.png" />
+    <None Remove="Assets\Icons\instagram.png" />
+    <None Remove="Assets\Icons\minus.png" />
+    <None Remove="Assets\Icons\ok.png" />
+    <None Remove="Assets\Icons\pause.png" />
+    <None Remove="Assets\Icons\play.png" />
+    <None Remove="Assets\Icons\playfill.png" />
+    <None Remove="Assets\Icons\plus.png" />
+    <None Remove="Assets\Icons\shipinyewurenkaimaibeifen.png" />
+    <None Remove="Assets\Icons\shutdown_def.png" />
+    <None Remove="Assets\Icons\shutdown_mo.png" />
+    <None Remove="Assets\Icons\speaker.png" />
+    <None Remove="Assets\Icons\stop.png" />
+    <None Remove="Assets\Icons\Twitter.png" />
+    <None Remove="Assets\Icons\wifi.png" />
+    <None Remove="Assets\Images\camera.png" />
+    <None Remove="Assets\Images\folder.png" />
+    <None Remove="Assets\Images\home-filling.png" />
+    <None Remove="Assets\Images\image.png" />
+    <None Remove="Assets\Images\minus.png" />
+    <None Remove="Assets\Images\multiply.png" />
+    <None Remove="Assets\Images\plus.png" />
+    <None Remove="Assets\Images\settings.png" />
+    <None Remove="Assets\SlideNav\icons8-conference-48.png" />
+    <None Remove="Assets\SlideNav\icons8-document-exchange-64.png" />
+    <None Remove="Assets\SlideNav\icons8-file-submodule-48.png" />
+    <None Remove="Assets\SlideNav\icons8-frame-50.png" />
+    <None Remove="Assets\SlideNav\icons8-help-48.png" />
+    <None Remove="Assets\SlideNav\icons8-home-48.png" />
+    <None Remove="Assets\SlideNav\icons8-login-48.png" />
+    <None Remove="Assets\SlideNav\icons8-male-user-48.png" />
+    <None Remove="Assets\SlideNav\icons8-pie-chart-48.png" />
+    <None Remove="Assets\SlideNav\icons8-wall-clock-64.png" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Buttons\NumericButton.xaml.cs">
-      <DependentUpon>NumericButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Cards\CardButton.xaml.cs">
-      <DependentUpon>CardButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ControlWindows\MenuButton.xaml.cs">
-      <DependentUpon>MenuButton.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Menus\Menu01.xaml.cs">
-      <DependentUpon>Menu01.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="Loadings\AnimateRectangle.xaml.cs">
-      <DependentUpon>AnimateRectangle.xaml</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <Resource Include="Assets\ControlCentres\icons8-bluetooth-24.png" />
+    <Resource Include="Assets\ControlCentres\icons8-brightness-24 (1).png" />
+    <Resource Include="Assets\ControlCentres\icons8-brightness-24.png" />
+    <Resource Include="Assets\ControlCentres\icons8-charging-battery-50.png" />
+    <Resource Include="Assets\ControlCentres\icons8-chromecast-cast-button-32.png" />
+    <Resource Include="Assets\ControlCentres\icons8-headphones-24.png" />
+    <Resource Include="Assets\ControlCentres\icons8-music-record-50.png" />
+    <Resource Include="Assets\ControlCentres\icons8-no-reminders-24.png" />
+    <Resource Include="Assets\ControlCentres\icons8-power-off-button-32.png" />
+    <Resource Include="Assets\ControlCentres\icons8-settings-24 (1).png" />
+    <Resource Include="Assets\ControlCentres\icons8-speaker-24.png" />
+    <Resource Include="Assets\ControlCentres\icons8-wi-fi-24.png" />
+    <Content Include="Assets\Fonts\Kanit-Bold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Fonts\Kanit-Medium.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\arrow-down-filling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\arrow-left-bold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\arrow-right-bold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\cancel-circle-half-dot.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\check.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\error.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\facebook.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\google.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\instagram.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\minus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\ok.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\pause.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\play.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\playfill.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\plus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\shipinyewurenkaimaibeifen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\shutdown_def.png" />
+    <Resource Include="Assets\Icons\shutdown_mo.png" />
+    <Resource Include="Assets\Icons\speaker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\stop.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\Twitter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Icons\wifi.png" />
+    <Resource Include="Assets\Images\camera.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\folder.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\home-filling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\image.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\minus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\multiply.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\plus.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\Images\settings.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\SlideNav\icons8-conference-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-document-exchange-64.png" />
+    <Resource Include="Assets\SlideNav\icons8-file-submodule-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-frame-50.png" />
+    <Resource Include="Assets\SlideNav\icons8-help-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-home-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-login-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-male-user-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-pie-chart-48.png" />
+    <Resource Include="Assets\SlideNav\icons8-wall-clock-64.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Buttons\NumericButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Cards\CardButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ControlWindows\MenuButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Loadings\AnimateRectangle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Menus\Menu01.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Asserts\Images\camera.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\folder.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\home-filling.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\image.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\multiply.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\plus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Asserts\Images\settings.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Asserts\Images\minus.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Asserts\Icons\minus.png" />
-    <Resource Include="Asserts\Icons\plus.png" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>

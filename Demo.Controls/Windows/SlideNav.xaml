@@ -1,0 +1,575 @@
+﻿<Window
+    x:Class="Demo.Controls.Windows.SlideNav"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Demo.Controls.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="SlideNav"
+    Width="230"
+    Height="600"
+    AllowsTransparency="True"
+    Background="{x:Null}"
+    Foreground="White"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+
+        <!--  Style  -->
+        <Style x:Key="MenuItemStyle" TargetType="TextBlock">
+            <Setter Property="Width" Value="220" />
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Background" Value="#FF131313" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Visibility" Value="Hidden" />
+            <Setter Property="Padding" Value="60,0,0,0" />
+        </Style>
+
+        <!--  Animation  -->
+        <Storyboard x:Key="sb_Enter_Analytics">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Analytics" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Analytics">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Analytics" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_Schedules">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Schedules" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Schedules">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Schedules" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_AccountManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_AccountManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_AccountManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_AccountManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_FileManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_FileManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_FileManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_FileManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_GroupManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_GroupManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_GroupManager">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_GroupManager" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_Captions">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Captions" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Captions">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Captions" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_Watermark">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Watermark" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Watermark">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Watermark" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_Help">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Help" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Help">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Help" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Enter_Login">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Login" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF131313" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF292929" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="sb_Leave_Login">
+            <ColorAnimationUsingKeyFrames Storyboard.TargetName="tb_Login" Storyboard.TargetProperty="(TextElement.Background).(SolidColorBrush.Color)">
+                <EasingColorKeyFrame KeyTime="0" Value="#FF292929" />
+                <EasingColorKeyFrame KeyTime="0:0:0.1" Value="#FF131313" />
+            </ColorAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="sb_Menu_Rt_Visible">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rt_Menu" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="4" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rt_Menu" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="86.5" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Dashboard" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Help" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Watermark" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Captions" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_GroupManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_FileManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_AccountManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Schedules" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Analytics" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="sb_Menu_Rt_Hidden">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rt_Menu" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="4" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rt_Menu" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="86.5" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Dashboard" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Login" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Help" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Watermark" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Captions" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_GroupManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_FileManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_AccountManager" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Schedules" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="tb_Analytics" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="OptionMarkFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="14,0,0,0"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="OptionMark.Static.Background" Color="#FFFFFFFF" />
+        <SolidColorBrush x:Key="OptionMark.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="OptionMark.Static.Glyph" Color="#FF212121" />
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Background" Color="#FFF3F9FF" />
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Border" Color="#FF5593FF" />
+        <SolidColorBrush x:Key="OptionMark.MouseOver.Glyph" Color="#FF212121" />
+        <SolidColorBrush x:Key="OptionMark.Pressed.Background" Color="#FFD9ECFF" />
+        <SolidColorBrush x:Key="OptionMark.Pressed.Border" Color="#FF3C77DD" />
+        <SolidColorBrush x:Key="OptionMark.Pressed.Glyph" Color="#FF212121" />
+        <SolidColorBrush x:Key="OptionMark.Disabled.Background" Color="#FFE6E6E6" />
+        <SolidColorBrush x:Key="OptionMark.Disabled.Border" Color="#FFBCBCBC" />
+        <SolidColorBrush x:Key="OptionMark.Disabled.Glyph" Color="#FF707070" />
+
+        <Style x:Key="CheckBoxStyle1" TargetType="{x:Type CheckBox}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="Background" Value="{StaticResource OptionMark.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource OptionMark.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid
+                            x:Name="templateRoot"
+                            Background="Transparent"
+                            SnapsToDevicePixels="True">
+                            <Grid Margin="5">
+                                <Rectangle
+                                    Width="5"
+                                    Height="32"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Top"
+                                    Fill="#FFFFEA00"
+                                    RadiusX="2.458"
+                                    RadiusY="2.458" />
+                                <Rectangle
+                                    Width="5"
+                                    Height="22"
+                                    Margin="0,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Fill="#FF7DFF00"
+                                    RadiusX="2.458"
+                                    RadiusY="2.458" />
+                                <Rectangle
+                                    Width="5"
+                                    Height="22"
+                                    Margin="20,5,0,0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top"
+                                    Fill="#FFFF5200"
+                                    RadiusX="2.458"
+                                    RadiusY="2.458" />
+                            </Grid>
+
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <!--  Menu  -->
+        <EventTrigger RoutedEvent="ToggleButton.Checked" SourceName="logo">
+            <BeginStoryboard Storyboard="{StaticResource sb_Menu_Rt_Visible}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ToggleButton.Unchecked" SourceName="logo">
+            <BeginStoryboard Storyboard="{StaticResource sb_Menu_Rt_Hidden}" />
+        </EventTrigger>
+
+        <!--  Analytics  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Analytics">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Analytics}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Analytics">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Analytics}" />
+        </EventTrigger>
+
+        <!--  Schedules  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Schedules">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Schedules}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Schedules">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Schedules}" />
+        </EventTrigger>
+
+        <!--  Account Manager  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_AccountManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_AccountManager}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_AccountManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_AccountManager}" />
+        </EventTrigger>
+
+        <!--  File Manager  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_FileManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_FileManager}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_FileManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_FileManager}" />
+        </EventTrigger>
+
+        <!--  Group Manager  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_GroupManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_GroupManager}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_GroupManager">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_GroupManager}" />
+        </EventTrigger>
+
+        <!--  Captions  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Captions">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Captions}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Captions">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Captions}" />
+        </EventTrigger>
+
+
+        <!--  Watermark  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Watermark">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Watermark}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Watermark">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Watermark}" />
+        </EventTrigger>
+
+        <!--  Help  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Help">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Help}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Help">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Help}" />
+        </EventTrigger>
+
+        <!--  Login  -->
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="tb_Login">
+            <BeginStoryboard Storyboard="{StaticResource sb_Enter_Login}" />
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="tb_Login">
+            <BeginStoryboard Storyboard="{StaticResource sb_Leave_Login}" />
+        </EventTrigger>
+
+    </Window.Triggers>
+
+    <Grid>
+        <Rectangle
+            x:Name="rt_Menu"
+            Height="600"
+            Margin="0,0,172,0"
+            Fill="#FF131313"
+            RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <TextBlock
+            x:Name="tb_Login"
+            Margin="0,546,0,-2"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Login" />
+
+        <TextBlock
+            x:Name="tb_Help"
+            Margin="0,501,0,3"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Help" />
+
+        <TextBlock
+            x:Name="tb_Watermark"
+            Margin="0,348,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Watermark" />
+
+        <TextBlock
+            x:Name="tb_Captions"
+            Margin="0,302,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Captions" />
+
+        <TextBlock
+            x:Name="tb_GroupManager"
+            Margin="0,256,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Group Manager" />
+
+        <TextBlock
+            x:Name="tb_FileManager"
+            Margin="0,210,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="File Manager" />
+
+        <TextBlock
+            x:Name="tb_AccountManager"
+            Margin="0,162,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Account Manager" />
+
+        <TextBlock
+            x:Name="tb_Schedules"
+            Margin="0,116,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Schedules" />
+
+        <TextBlock
+            x:Name="tb_Analytics"
+            Margin="0,70,0,0"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Analytics" />
+
+        <TextBlock
+            x:Name="tb_Dashboard"
+            Margin="0,24,0,0"
+            FontWeight="Bold"
+            Style="{StaticResource MenuItemStyle}"
+            Text="Dashboard" />
+
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,74,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-pie-chart-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,120,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-wall-clock-64.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,166,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-male-user-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,214,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-file-submodule-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,260,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-conference-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,306,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-document-exchange-64.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,351,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-frame-50.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="28"
+            Height="28"
+            Margin="15,501,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-help-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+        <Ellipse
+            Width="24"
+            Height="24"
+            Margin="17,546,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/SlideNav/icons8-login-48.png" Stretch="UniformToFill" />
+            </Ellipse.Fill>
+        </Ellipse>
+
+        <CheckBox
+            x:Name="logo"
+            Margin="11"
+            Style="{DynamicResource CheckBoxStyle1}" />
+
+    </Grid>
+</Window>

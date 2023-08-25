@@ -7,17 +7,14 @@
     xmlns:local="clr-namespace:Demo.Example"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
-    Width="800"
-    Height="450"
+    Width="600"
+    Height="600"
     mc:Ignorable="d">
 
     <Grid Background="#f1f3f5">
-        <TabControl>
+        <TabControl Background="Gray">
             <TabItem Header="Demo01">
-                <Button
-                    Width="100"
-                    Height="100"
-                    Click="Button_Click" />
+                <ctrl:DDList />
             </TabItem>
 
             <TabItem Header="Demo02">
@@ -51,6 +48,10 @@
 
             <TabItem Header="Demo05">
                 <ctrl:NumericButton />
+            </TabItem>
+
+            <TabItem Header="Demo6">
+                <ctrl:PresentationControls />
             </TabItem>
         </TabControl>
     </Grid>

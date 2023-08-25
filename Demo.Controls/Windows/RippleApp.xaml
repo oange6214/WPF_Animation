@@ -1,0 +1,399 @@
+﻿<Window
+    x:Class="Demo.Controls.Windows.RippleApp"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Demo.Controls.Windows"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="RippleApp"
+    Width="400"
+    Height="600"
+    AllowsTransparency="True"
+    Background="Transparent"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style x:Key="TgBtnStyle" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border
+                            x:Name="border"
+                            Background="Transparent"
+                            CornerRadius="60">
+                            <Grid>
+                                <Image
+                                    Width="60"
+                                    Height="60"
+                                    Source="pack://application:,,,/Demo.Controls;component/Assets/Icons/wifi.png"
+                                    Stretch="Uniform" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#a9c220" />
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#a9c220" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="IsChecked" Value="False" />
+                                </MultiTrigger.Conditions>
+                                <Setter TargetName="border" Property="Background" Value="#ff5231" />
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--  Close App Button Style  -->
+        <ImageBrush
+            x:Key="close_def"
+            ImageSource="pack://application:,,,/Demo.Controls;component/Assets/Icons/shutdown_def.png"
+            Stretch="Uniform" />
+
+        <ImageBrush
+            x:Key="close_mo"
+            ImageSource="pack://application:,,,/Demo.Controls;component/Assets/Icons/shutdown_mo.png"
+            Stretch="Uniform" />
+
+        <Style x:Key="CloseAppStyle" TargetType="{x:Type Button}">
+            <Setter Property="Height" Value="35" />
+            <Setter Property="Width" Value="35" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="Margin" Value="0,20,20,0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border
+                            x:Name="border"
+                            Width="35"
+                            Height="35"
+                            Background="{StaticResource close_def}"
+                            BorderThickness="0" />
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource close_mo}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{StaticResource close_mo}" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </Window.Resources>
+
+    <Grid>
+        <Border
+            Background="#2a2c2d"
+            BorderBrush="#EFEFEF"
+            BorderThickness="10"
+            CornerRadius="30" />
+        <Border
+            Width="220"
+            Height="40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Background="#EFEFEF"
+            CornerRadius="0 0 12 12">
+            <TextBlock
+                Margin="0,5,0,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="18"
+                FontWeight="Bold"
+                Foreground="#2A2C2D"
+                Text="C #  D E S I G N  P R O" />
+        </Border>
+
+        <Border
+            Width="190"
+            Height="20"
+            Margin="0,0,0,7"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Background="#EFEFEF"
+            CornerRadius="5 5 0 0 ">
+            <TextBlock
+                x:Name="textBlockDemo"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                FontSize="11"
+                FontWeight="Bold"
+                Foreground="#2A2C2D"
+                Text="D E S I G N  T H E  I N T E R F A C E" />
+        </Border>
+
+        <!--  Ellipse - G1  -->
+        <Ellipse
+            x:Name="EG_1"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#a9c220" />
+
+        <!--  Ellipse - G2  -->
+        <Ellipse
+            x:Name="EG_2"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#a9c220" />
+
+        <!--  Ellipse - G3  -->
+        <Ellipse
+            x:Name="EG_3"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#a9c220" />
+
+        <!--  Ellipse R1  -->
+        <Ellipse
+            x:Name="ER_1"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#FF5231" />
+
+        <!--  Ellipse R2  -->
+        <Ellipse
+            x:Name="ER_2"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#FF5231" />
+
+        <!--  Ellipse R3  -->
+        <Ellipse
+            x:Name="ER_3"
+            Width="100"
+            Height="100"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Fill="#FF5231" />
+
+        <!--  Toggle button  -->
+        <ToggleButton
+            x:Name="Tg_btn"
+            Width="110"
+            Height="110"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Style="{StaticResource TgBtnStyle}">
+            <ToggleButton.Triggers>
+                <EventTrigger RoutedEvent="ToggleButton.Checked">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard x:Name="Ellipse_Activated">
+                            <Storyboard>
+
+                                <!--  G1 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_1"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_1"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_1"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="1.0"
+                                    To="0"
+                                    Duration="00:00:03" />
+
+
+                                <!--  G2 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:01"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_2"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:01"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_2"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:01"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_2"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="1.0"
+                                    To="0"
+                                    Duration="00:00:03" />
+
+                                <!--  G3 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:02"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_3"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:02"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_3"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="100"
+                                    To="300"
+                                    Duration="00:00:03" />
+
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:02"
+                                    RepeatBehavior="Forever"
+                                    Storyboard.TargetName="EG_3"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="1.0"
+                                    To="0"
+                                    Duration="00:00:03" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                    <EventTrigger.Actions>
+                        <RemoveStoryboard BeginStoryboardName="Ellipse_Activated" />
+
+                        <BeginStoryboard x:Name="Ellipse_Deactivated">
+                            <Storyboard>
+                                <!--  R1 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_1"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="300"
+                                    To="100"
+                                    Duration="00:00:03" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_1"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="300"
+                                    To="100"
+                                    Duration="00:00:03" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_1"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0"
+                                    To="1.0"
+                                    Duration="00:00:03" />
+
+                                <!--  R2 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_2"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="250"
+                                    To="100"
+                                    Duration="00:00:02" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_2"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="250"
+                                    To="100"
+                                    Duration="00:00:02" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_2"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0"
+                                    To="1.0"
+                                    Duration="00:00:02" />
+
+                                <!--  R3 Animation  -->
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_3"
+                                    Storyboard.TargetProperty="(Ellipse.Width)"
+                                    From="200"
+                                    To="100"
+                                    Duration="00:00:01" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_3"
+                                    Storyboard.TargetProperty="(Ellipse.Height)"
+                                    From="200"
+                                    To="100"
+                                    Duration="00:00:01" />
+
+                                <DoubleAnimation
+                                    BeginTime="00:00:00"
+                                    Storyboard.TargetName="ER_3"
+                                    Storyboard.TargetProperty="Opacity"
+                                    From="0.0"
+                                    To="1.0"
+                                    Duration="00:00:01" />
+
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+
+
+            </ToggleButton.Triggers>
+        </ToggleButton>
+
+        <!--  Close App Button  -->
+        <Button
+            x:Name="Close_App"
+            Click="Close_App_Click"
+            Style="{StaticResource CloseAppStyle}" />
+
+    </Grid>
+</Window>

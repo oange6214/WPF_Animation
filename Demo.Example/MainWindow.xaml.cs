@@ -1,4 +1,5 @@
 ﻿using Demo.Controls;
+using Demo.Controls.Windows;
 using System.Windows;
 
 namespace Demo.Example
@@ -8,12 +9,6 @@ namespace Demo.Example
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MenuButton menuButton = new MenuButton();
-            menuButton.Show();
         }
     }
 }

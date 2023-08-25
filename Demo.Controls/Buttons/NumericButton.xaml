@@ -226,7 +226,7 @@
             <Image
                 Width="25"
                 Margin="3,3,3,3"
-                Source="pack://application:,,,/Demo.Controls;component/Asserts/Icons/minus.png" />
+                Source="pack://application:,,,/Demo.Controls;component/Assets/Icons/minus.png" />
         </Button>
         <Button
             x:Name="btn_PlusNum"
@@ -243,7 +243,7 @@
             <Image
                 Width="25"
                 Margin="3,3,3,3"
-                Source="pack://application:,,,/Demo.Controls;component/Asserts/Icons/plus.png" />
+                Source="pack://application:,,,/Demo.Controls;component/Assets/Icons/plus.png" />
         </Button>
 
     </Grid>

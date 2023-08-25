@@ -68,7 +68,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/home-filling.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/home-filling.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -110,7 +110,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/plus.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/plus.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -152,7 +152,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/settings.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/settings.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -198,7 +198,7 @@
                             <Image
                                 Width="25"
                                 Margin="3,3,3,3"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/multiply.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/multiply.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -259,7 +259,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/camera.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/camera.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -327,7 +327,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/folder.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/folder.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -395,7 +395,7 @@
                                 Width="25"
                                 Margin="3,3,3,3"
                                 OpacityMask="White"
-                                Source="pack://application:,,,/Demo.Controls;component/Asserts/Images/image.png" />
+                                Source="pack://application:,,,/Demo.Controls;component/Assets/Images/image.png" />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsDefaulted" Value="true">
@@ -507,7 +507,6 @@
                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button1_Copy" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
                         <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1" />
                         <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0" />
-
                     </DoubleAnimationUsingKeyFrames>
                     <DoubleAnimationUsingKeyFrames Storyboard.TargetName="button1_Copy" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
                         <EasingDoubleKeyFrame KeyTime="00:00:0" Value="-82" />
