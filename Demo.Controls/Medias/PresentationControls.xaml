@@ -44,6 +44,46 @@
                 <DiscreteObjectKeyFrame KeyTime="00:00:0" Value="{x:Static Visibility.Hidden}" />
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle
+                            Margin="2"
+                            SnapsToDevicePixels="true"
+                            Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                            StrokeDashArray="1 2"
+                            StrokeThickness="1" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD" />
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070" />
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD" />
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1" />
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6" />
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B" />
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4" />
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5" />
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383" />
+        <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}" />
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}" />
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="1" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Image Source="pack://application:,,,/Demo.Controls;component/Assets/Icons/speaker.png" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
 
     <UserControl.Triggers>
@@ -127,18 +167,6 @@
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Fill="#FFCCCCCC" />
-        <!--<Rectangle
-            x:Name="tgb_Audio"
-            Width="45"
-            Height="45"
-            Margin="180,351,0,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top">
-            <Rectangle.Fill>
-                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/Icons/speaker.png" Stretch="Uniform" />
-            </Rectangle.Fill>
-        </Rectangle>-->
-
         <ToggleButton
             x:Name="tgb_Audio"
             Width="45"
@@ -146,11 +174,8 @@
             Margin="180,351,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            BorderBrush="{x:Null}">
-            <ToggleButton.Background>
-                <ImageBrush ImageSource="pack://application:,,,/Demo.Controls;component/Assets/Icons/speaker.png" />
-            </ToggleButton.Background>
-        </ToggleButton>
+            BorderBrush="{x:Null}"
+            Style="{DynamicResource ToggleButtonStyle1}" />
 
         <Rectangle
             Width="75"

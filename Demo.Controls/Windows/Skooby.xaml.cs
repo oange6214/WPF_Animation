@@ -32,6 +32,7 @@ public partial class Skooby : Window
         }
         else
         {
+            img_EmailCheck.Visibility = Visibility.Hidden;
             path_Email.Stroke = Brushes.Red;
             txt_Email.Foreground = Brushes.Red;
         }
