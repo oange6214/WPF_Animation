@@ -14,7 +14,45 @@
     <Grid Background="#f1f3f5">
         <TabControl Background="Gray">
             <TabItem Header="Demo01">
-                <ctrl:DDList />
+                <!--<ctrl:MessageAlerts />-->
+                <StackPanel>
+                    <Button
+                        x:Name="Success"
+                        Width="100"
+                        Height="50"
+                        Margin="5"
+                        Background="#FF267E56"
+                        Click="Success_Click"
+                        Content="Success"
+                        Foreground="White" />
+                    <Button
+                        x:Name="Warning"
+                        Width="100"
+                        Height="50"
+                        Margin="5"
+                        Background="#FFFF5200"
+                        Click="Warning_Click"
+                        Content="Warning"
+                        Foreground="White" />
+                    <Button
+                        x:Name="Error"
+                        Width="100"
+                        Height="50"
+                        Margin="5"
+                        Background="#FF970E00"
+                        Click="Error_Click"
+                        Content="Error"
+                        Foreground="White" />
+                    <Button
+                        x:Name="Info"
+                        Width="100"
+                        Height="50"
+                        Margin="5"
+                        Background="#FF3D6CE8"
+                        Click="Info_Click"
+                        Content="Info"
+                        Foreground="White" />
+                </StackPanel>
             </TabItem>
 
             <TabItem Header="Demo02">
@@ -52,6 +90,10 @@
 
             <TabItem Header="Demo6">
                 <ctrl:PresentationControls />
+            </TabItem>
+
+            <TabItem Header="Demo7">
+                <ctrl:DDList />
             </TabItem>
         </TabControl>
     </Grid>

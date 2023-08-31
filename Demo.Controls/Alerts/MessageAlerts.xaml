@@ -1,0 +1,394 @@
+﻿<UserControl
+    x:Class="Demo.Controls.MessageAlerts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Demo.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+
+    <UserControl.Resources>
+        <Style x:Key="ButtonBase" TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="45" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="FontSize" Value="22" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+
+        <Storyboard x:Key="Storyboard1">
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Success" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Success" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-99" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-223.5" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-319.5" />
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+        <Storyboard x:Key="Storyboard2">
+
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Error" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Error" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-90" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-194" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="-252" />
+            </DoubleAnimationUsingKeyFrames>
+
+        </Storyboard>
+
+        <Storyboard x:Key="Storyboard3">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Info" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Info" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-92" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-260" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="Storyboard4">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Warning" Storyboard.TargetProperty="(UIElement.Visibility)">
+                <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Hidden}" />
+                <DiscreteObjectKeyFrame KeyTime="00:00:00.2000000" Value="{x:Static Visibility.Visible}" />
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="Warning" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="-94" />
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="-234" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid>
+        <Button
+            x:Name="btn_Success"
+            Margin="60,68,0,0"
+            Background="#FF248E21"
+            Content="Success"
+            Style="{StaticResource ButtonBase}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button
+            x:Name="btn_Error"
+            Margin="218,68,0,0"
+            Background="#FFDC4B29"
+            Content="Error"
+            Style="{StaticResource ButtonBase}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button
+            x:Name="btn_Info"
+            Margin="375,68,0,0"
+            Background="#FF23ADE8"
+            Content="Info"
+            Style="{StaticResource ButtonBase}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard3}" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button
+            x:Name="btn_Warning"
+            Margin="533,68,0,0"
+            Background="#FFBBA92F"
+            Content="Warning"
+            Style="{StaticResource ButtonBase}">
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard Storyboard="{StaticResource Storyboard4}" />
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Grid
+            x:Name="Success"
+            Margin="10,500,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            Visibility="Hidden">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle
+                Width="413"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="#FF248E21"
+                RadiusX="15"
+                RadiusY="15" />
+            <Ellipse
+                Width="50"
+                Height="50"
+                Margin="22,15,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="White" />
+            <Path
+                Width="36"
+                Height="25"
+                Margin="29,28,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M93.375,205.875 L104.3125,216.8125 127.80327,193.32173"
+                Stretch="Fill"
+                Stroke="#FF248E21"
+                StrokeThickness="4" />
+            <TextBlock
+                Width="300"
+                Height="60"
+                Margin="100,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                TextWrapping="Wrap"><Run FontWeight="Bold" Text="Success!" /><LineBreak /><Run Text="Success is warning from failure to failure with no less of enthusiasm." /></TextBlock>
+        </Grid>
+        <Grid
+            x:Name="Error"
+            Margin="107,500,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            Visibility="Hidden">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle
+                Width="413"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="#FFDC4B29"
+                RadiusX="15"
+                RadiusY="15" />
+            <Ellipse
+                Width="50"
+                Height="50"
+                Margin="22,15,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="White" />
+            <TextBlock
+                Width="300"
+                Height="60"
+                Margin="100,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                TextWrapping="Wrap"><Run FontWeight="Bold" Text="Error!" /><LineBreak /><Run Text="We come to learn that it does not pay to grieve too much over our errors." /></TextBlock>
+            <Path
+                Width="24"
+                Height="24"
+                Margin="35,28,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M98.5,290.5 L116.5,308.5"
+                Stretch="Fill"
+                Stroke="#FFC86149"
+                StrokeThickness="4" />
+            <Path
+                Width="24"
+                Height="24"
+                Margin="35,28,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M98.5,290.5 L116.5,308.5"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Fill"
+                Stroke="#FFC86149"
+                StrokeThickness="4">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform Angle="90" />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+        </Grid>
+        <Grid
+            x:Name="Info"
+            Margin="207,500,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            Visibility="Hidden">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle
+                Width="413"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="#FF23ADE8"
+                RadiusX="15"
+                RadiusY="15" />
+            <Ellipse
+                Width="50"
+                Height="50"
+                Margin="22,15,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="White" />
+            <TextBlock
+                Width="300"
+                Height="60"
+                Margin="100,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                TextWrapping="Wrap"><Run FontWeight="Bold" Text="Info!" /><LineBreak /><Run Text="In the age of technology there is constant access to vast amounts of information." /></TextBlock>
+            <Path
+                Width="2"
+                Height="14"
+                Margin="43,35,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M102.6.75 L102.6,400"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Fill"
+                Stroke="#FF2A91BD"
+                StrokeThickness="4">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform AngleY="1.193" />
+                        <RotateTransform />
+                        <TranslateTransform Y="0.01" />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path
+                Width="1"
+                Height="2"
+                Margin="43,31,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M100,384.7 L103.6,382.2"
+                Stretch="Fill"
+                Stroke="#FF2A91BD" />
+        </Grid>
+        <Grid
+            x:Name="Warning"
+            Margin="296,500,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5"
+            Visibility="Hidden">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Rectangle
+                Width="413"
+                Height="80"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="#FFBBA92F"
+                RadiusX="15"
+                RadiusY="15" />
+            <Ellipse
+                Width="50"
+                Height="50"
+                Margin="22,15,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Fill="White" />
+            <TextBlock
+                Width="300"
+                Height="60"
+                Margin="100,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="12"
+                Foreground="White"
+                TextWrapping="Wrap"><Run FontWeight="Bold" Text="Warning!" /><LineBreak /><Run Text="Be careful what you ask for, you might get it." /></TextBlock>
+            <Path
+                Width="2"
+                Height="14"
+                Margin="43,35,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M102.6.75 L102.6,400"
+                RenderTransformOrigin="0.5,0.5"
+                Stretch="Fill"
+                Stroke="#FF2A91BD"
+                StrokeThickness="4">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform AngleY="1.193" />
+                        <RotateTransform />
+                        <TranslateTransform Y="0.01" />
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Path
+                Width="1"
+                Height="2"
+                Margin="43,31,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Data="M100,384.7 L103.6,382.2"
+                Stretch="Fill"
+                Stroke="#FF2A91BD" />
+
+        </Grid>
+
+    </Grid>
+</UserControl>

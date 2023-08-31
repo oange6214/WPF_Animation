@@ -26,10 +26,12 @@
     <None Remove="Assets\Icons\arrow-right-bold.png" />
     <None Remove="Assets\Icons\cancel-circle-half-dot.png" />
     <None Remove="Assets\Icons\check.png" />
+    <None Remove="Assets\Icons\close.png" />
     <None Remove="Assets\Icons\error.png" />
     <None Remove="Assets\Icons\facebook.png" />
     <None Remove="Assets\Icons\google.png" />
     <None Remove="Assets\Icons\image.png" />
+    <None Remove="Assets\Icons\info.png" />
     <None Remove="Assets\Icons\instagram.png" />
     <None Remove="Assets\Icons\minus.png" />
     <None Remove="Assets\Icons\ok.png" />
@@ -42,7 +44,9 @@
     <None Remove="Assets\Icons\shutdown_mo.png" />
     <None Remove="Assets\Icons\speaker.png" />
     <None Remove="Assets\Icons\stop.png" />
+    <None Remove="Assets\Icons\success.png" />
     <None Remove="Assets\Icons\Twitter.png" />
+    <None Remove="Assets\Icons\warning.png" />
     <None Remove="Assets\Icons\wifi.png" />
     <None Remove="Assets\Images\camera.png" />
     <None Remove="Assets\Images\folder.png" />
@@ -98,6 +102,7 @@
     <Resource Include="Assets\Icons\check.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Icons\close.png" />
     <Resource Include="Assets\Icons\error.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -110,6 +115,7 @@
     <Resource Include="Assets\Icons\image.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Icons\info.png" />
     <Resource Include="Assets\Icons\instagram.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
@@ -142,9 +148,11 @@
     <Resource Include="Assets\Icons\stop.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Icons\success.png" />
     <Resource Include="Assets\Icons\Twitter.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Assets\Icons\warning.png" />
     <Resource Include="Assets\Icons\wifi.png" />
     <Resource Include="Assets\Images\camera.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
